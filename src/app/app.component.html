@@ -1,0 +1,32 @@
+<div class="toggle-menu">
+  <div
+    class="toggle-item"
+    [class.selected]="mode === Mode.List"
+    (click)="toggleMode(Mode.List)"
+  >
+    List
+  </div>
+  <div
+    class="toggle-item"
+    [class.selected]="mode === Mode.Grid"
+    (click)="toggleMode(Mode.Grid)"
+  >
+    Grid
+  </div>
+</div>
+<div *ngIf="mode === Mode.List" class="dish-list">
+  <div *ngFor="let dish of dishes" class="list-item">
+    <div class="item-img" [style.background-image]="dish.url"></div>
+    <div>
+      <h1 class="item-title">{{ dish.name }}</h1>
+      <div class="item-desc">{{ dish.description }}</div>
+    </div>
+  </div>
+</div>
+<div *ngIf="mode === Mode.Grid" class="dish-grid">
+  <div *ngFor="let dish of dishes" class="grid-item">
+    <div class="item-img" [style.background-image]="dish.url"></div>
+    <h1 class="item-title">{{ dish.name }}</h1>
+    <div class="item-desc">{{ dish.description }}</div>
+  </div>
+</div>
